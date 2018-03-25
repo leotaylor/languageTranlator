@@ -47,15 +47,18 @@ const allTheButtons = document.getElementsByClassName('btn btn-success');
 
 for (let i = 0; i < allTheButtons.length; i++) {
     allTheButtons[i].addEventListener('click', (event) => {
-        const userInput = inputBox.value.toLowerCase();
+        const userInput = inputBox.value.toLowerCase().trim();
+        const userInputArray = userInput.split(' ');
         let domOutput = '';
         if (event.target.id === 'spanishBTN'){
-            domOutput = spanish[userInput];
+            domOutput = spanish[userInputArray];
         } else if (event.target.id === 'italianBTN'){
-            domOutput = italian[userInput];
+            domOutput = italian[userInputArray];
         } else {
-            domOutput = german[userInput];
+            domOutput = german[userInputArray];
         }
         outputBox.innerHTML = domOutput;
+        console.log(userInput);
+        console.log(domOutput);
     });
 };
