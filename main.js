@@ -49,7 +49,8 @@ for (let i = 0; i < allTheButtons.length; i++) {
     allTheButtons[i].addEventListener('click', (event) => {
         const userInput = inputBox.value.toLowerCase().trim();
         const userInputArray = userInput.split(' ');
-        let domOutput = '';
+        let domOutput = ' ';
+
         if (event.target.id === 'spanishBTN'){
             domOutput = spanish[userInputArray];
         } else if (event.target.id === 'italianBTN'){
