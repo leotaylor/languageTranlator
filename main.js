@@ -49,17 +49,24 @@ for (let i = 0; i < allTheButtons.length; i++) {
     allTheButtons[i].addEventListener('click', (event) => {
         const userInput = inputBox.value.toLowerCase().trim();
         const userInputArray = userInput.split(' ');
-        let domOutput = ' ';
+        let domOutput =  '';
 
         if (event.target.id === 'spanishBTN'){
-            domOutput = spanish[userInputArray];
+            for(var i = 0; i < userInputArray.length; i++){
+                var currentItem = userInputArray[i];
+                domOutput += spanish[currentItem] + " ";
+            }
         } else if (event.target.id === 'italianBTN'){
-            domOutput = italian[userInputArray];
-        } else {
-            domOutput = german[userInputArray];
+            for(var i = 0; i < userInputArray.length; i++){
+                var currentItem = userInputArray[i];
+                domOutput += italian[currentItem] + " ";
+            }    
+        } else if (event.target.id === 'germanBTN'){
+            for(var i = 0; i < userInputArray.length; i++){
+                var currentItem = userInputArray[i];
+                domOutput += german[currentItem] + " ";
+            }   
         }
         outputBox.innerHTML = domOutput;
-        console.log(userInput);
-        console.log(domOutput);
     });
 };
